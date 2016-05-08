@@ -1,0 +1,23 @@
+.myclassformt{
+    margin-top: 100px;
+    margin-left:200px;
+    margin-right: 200px;
+}
+.myclass{
+    margin-top: 50px;
+    margin-left:100px;
+    margin-right: 100px;
+}
+.mybody{
+    background-color: rgba(219, 138, 78, 0.1);
+}
+.text{
+    margin-top:10px;
+    margin-left:250px;
+    margin-right: 200px;
+}
+.back{
+    background-repeat: no-repeat;
+    width: 100%;
+    height: auto;
+}
