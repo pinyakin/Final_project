@@ -1,4 +1,6 @@
-package shared;
+package dao;
+
+import entity.Race;
 
 import java.util.List;
 

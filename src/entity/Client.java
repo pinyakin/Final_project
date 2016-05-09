@@ -1,4 +1,4 @@
-package shared;
+package entity;
 
 /**
  * Created by ww on 02.05.2016.
@@ -9,6 +9,17 @@ public class Client extends User{
     private String  patronymic;
     private String email;
     private String tel;
+
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
+    }
+
     private String address;
     private int id;
 

@@ -1,4 +1,4 @@
-package shared;
+package entity;
 
 /**
  * Created by ww on 02.05.2016.

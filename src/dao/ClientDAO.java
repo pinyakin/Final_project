@@ -1,6 +1,6 @@
-package shared;
+package dao;
 
-import shared.Client;
+import entity.Client;
 
 import java.util.List;
 

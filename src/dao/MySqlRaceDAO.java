@@ -1,4 +1,6 @@
-package shared;
+package dao;
+
+import entity.Race;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
