@@ -1,0 +1,68 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: ww
+  Date: 26.05.2016
+  Time: 12:32
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+         pageEncoding="utf-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<html>
+<style>
+    tr:hover {
+        color: #3b12e4; /* Цвет ссылки при наведении на нее курсора мыши */
+        text-decoration: underline; /* Добавляем подчеркивание */
+    }
+    th:hover {
+        color: none; /* Цвет ссылки при наведении на нее курсора мыши */
+        text-decoration: none; /* Добавляем подчеркивание */
+    }
+</style>
+<head>
+    <title>Pegas</title>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="css/mycss.css" rel="stylesheet">
+</head>
+<body class="mybody">
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container ">
+            <a class="btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <div class="nav-collapse">
+                <ul class="nav nav-pills">
+                    <li class="active"><a href="/ServletForFirstPage"><fmt:message key="main"/></a></li>
+                    <li><a href="/ServletForRaces"><fmt:message key="races"/></a></li>
+                    <li><a href="/types_bets"><fmt:message key="types_of_bets"/></a></li>
+                    <li><a href="/gethistory"><fmt:message key="history"/></a></li>
+                    <li><a href="/Registration"><fmt:message key="registration"/></a></li>
+                    <c:if test="${user_session.role.equals('admin')}"><li><a href="/adminPanel"><fmt:message key="control"/></a></li></c:if>
+                    <c:if test="${user_session.role.equals('bookmaker')}"><li><a href="/bookmakerPanel"><fmt:message key="bookmaker"/></a></li></c:if>
+                    <li class="divider-vertical"></li>
+                    <li class="pull-right"><a href="/changeLocale?locale=ru_RU"><fmt:message key="ru"/></a></li>
+                    <li class="pull-right"><a href="/changeLocale?locale=en_US"><fmt:message key="en"/></a></li>
+                    <c:if test="${user_session==null}"><li class="pull-right"><a href="/Login"><fmt:message key="signin"/></a></li></c:if>
+                    <c:if test="${user_session!=null}"><li class="pull-right dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">${userName}</button>
+                        <ul class="dropdown-menu">
+                            <li><a href="/profile?email=${user_session.email}"><fmt:message key="profile"/></a></li>
+                            <li><a href="/myhistory"><fmt:message key="myhistory"/></a></li>
+                            <li><a href="/signout"><fmt:message key="signout"/></a></li>
+                        </ul>
+                    </li>
+                    </c:if>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

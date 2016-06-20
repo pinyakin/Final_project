@@ -12,7 +12,49 @@
     background-color: rgba(219, 138, 78, 0.1);
 }
 .text{
+    margin-left:250px;
+    margin-right: 200px;
+}
+.onlytop{
     margin-top:10px;
+}
+.textbt{
+    margin-top:40px;
+}
+.block0{float:right;}
+.block12{float:left;
+    width: 809px;}
+.block1{  float:left; }
+.someclass{margin-right: 130px;}
+.footer {
+    padding: 20px 0px 0px 0px;
+    margin:auto;
+}
+.block2{  float:right;
+width: 809px;}
+.block222{
+    float:right;
+    width: 809px;
+    }
+.block11{
+    margin-left: 100px;
+    float:right;
+    width: 809px;}
+.topch{
+    margin-top:50px;
+    margin-left:10px;
+    margin-right: 100px;
+}
+.lefttext{
+float: right;
+    font-weight: 600;
+}
+.leftimg {
+    float:left; /* Выравнивание по левому краю */
+    margin: 7px 7px 7px 0; /* Отступы вокруг картинки */
+}
+.topchik{
+    margin-top:30px;
     margin-left:250px;
     margin-right: 200px;
 }
@@ -20,4 +62,53 @@
     background-repeat: no-repeat;
     width: 100%;
     height: auto;
+}
+.nav-pillsR > li {
+    float: left;
+}
+.nav-pillsR > li > a {
+    border-radius: 4px;
+}
+.nav-pillsR > li + li {
+    margin-left: 2px;
+}
+.nav-pillsR > li.active > a,
+.nav-pillsR > li.active > a:hover,
+.nav-pillsR > li.active > a:focus {
+    color: #fff;
+    background-color: #0b040e;
+}
+
+a.black {
+    color: rgb(8, 14, 24);
+    text-decoration: none;
+}
+
+a.black:hover,
+a.black:focus {
+    color: #000000;
+    text-decoration: underline;
+}
+a.black:focus {
+    outline: thin dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+.widthblock{
+    width: 500px;
+}
+.block4{
+    z-index: 1;
+    float: left;
+    margin-top: 20px;
+}
+.block5{
+    z-index: 2;
+    margin-top: 20px;
+    float: left;
+}
+.block6{
+    z-index: 3;
+    float: left;
+    margin-top: 20px;
 }

@@ -3,4 +3,26 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+
+<jsp-config>
+<jsp-property-group>
+    <description>header and footer settings</description>
+    <url-pattern>/WEB-INF/jsp/shared_jsp/*</url-pattern>
+    <url-pattern>/WEB-INF/jsp/admin_jsp/*</url-pattern>
+    <url-pattern>/WEB-INF/jsp/bookmaker_jsp/*</url-pattern>
+    <url-pattern>/WEB-INF/jsp/client/*</url-pattern>
+    <url-pattern>/WEB-INF/jsp/error-400.jsp</url-pattern>
+    <include-prelude>/WEB-INF/jspf/header.jspf</include-prelude>
+    <include-coda>/WEB-INF/jspf/footer.jspf</include-coda>
+</jsp-property-group>
+</jsp-config>
+    <context-param>
+        <param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
+        <param-value>outing</param-value>
+    </context-param>
+
+    <error-page>
+        <error-code>400</error-code>
+        <location>/WEB-INF/jsp/error-400.jsp</location>
+    </error-page>
 </web-app>
