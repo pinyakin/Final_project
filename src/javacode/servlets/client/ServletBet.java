@@ -16,6 +16,8 @@ import java.util.List;
 
 /**
  * Created by ww on 09.06.2016.
+ *
+ * Get participants of race for client
  */
 @WebServlet(name = "ServletBet",urlPatterns = "/bet")
 public class ServletBet extends HttpServlet {
@@ -24,6 +26,12 @@ public class ServletBet extends HttpServlet {
 
     }
 
+    /**
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         int id= Integer.parseInt(request.getParameter("id"));

@@ -46,6 +46,9 @@ public class CreateTicket extends HttpServlet {
             Ticket ticket=new Ticket();
             Client client= (Client) request.getSession().getAttribute("user_session");
             if(client.getBalance()<Double.parseDouble(request.getParameter("money"))){
+                logger.debug("Not enough money in the account");
+                request.setAttribute("messageTicket","noMoney");
+                doGet(request, response);
                 return;
             }
             if(request.getParameter("type").equals("winB")) {

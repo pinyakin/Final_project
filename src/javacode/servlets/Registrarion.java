@@ -29,6 +29,13 @@ public class Registrarion extends HttpServlet {
     private final Logger logger = Logger.getLogger(Registration.class);
     private final Pattern p = Pattern.compile("[0-9a-z_]+@[0-9a-z_^\\.]+\\.[a-z]{2,3}");
     private Matcher m;
+
+    /**
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         if(request.getParameter("lastName") == null || request.getParameter("firstName") == null ||
@@ -70,7 +77,6 @@ public class Registrarion extends HttpServlet {
             return;
         }
         final Date date= Date.valueOf(request.getParameter("date"));
-
 
         Calendar calendar=Calendar.getInstance();
         calendar.setTime(date);

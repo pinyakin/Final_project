@@ -5,8 +5,13 @@
   Time: 1:18
   To change this template use File | Settings | File Templates.
 --%>
+<jsp:useBean id="messageTicket" scope="request"
+             class="java.lang.String"/>
 <div class="mybody">
     <div class=" myclass">
+        <c:if test="${!messageTicket.equals('')}">
+            <h1><fmt:message key="${messageTicket}"/></h1>
+        </c:if>
         <h2><fmt:message key="event"/> id${race.id}</h2>
             <div class="form-group">
                 <label class="control-label col-xs-3" for="racename"><fmt:message key="event"/>:</label>
