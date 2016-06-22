@@ -9,7 +9,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -49,7 +48,7 @@ public class MySqlDaoParticipation extends AbstractJDBCDao<Participation,Integer
 
     @Override
     protected List<Participation> parseResultSet(ResultSet rs) throws SQLException {
-        LinkedList<Participation> result = new LinkedList<>();
+        ArrayList<Participation> result = new ArrayList<>();
         try {
             while (rs.next()) {
                 PersistParticipation participation = new PersistParticipation();

@@ -4,7 +4,7 @@ import javacode.entity.Client;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -54,7 +54,7 @@ public class MySqlClientDao extends AbstractJDBCDao<Client,Integer> {
     @Override
     protected List<Client> parseResultSet(ResultSet rs) throws SQLException {
 
-        LinkedList<Client> result = new LinkedList<>();
+        ArrayList<Client> result = new ArrayList<>();
         try {
             while (rs.next()) {
                 PersistClient client = new PersistClient();

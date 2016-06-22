@@ -6,7 +6,6 @@ import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -51,7 +50,7 @@ public class MySqlRaceDAO extends AbstractJDBCDao<Race,Integer> {
 
     @Override
     protected List<Race> parseResultSet(ResultSet rs) throws SQLException {
-        LinkedList<Race> result = new LinkedList<>();
+        ArrayList<Race> result = new ArrayList<>();
         try {
             while (rs.next()) {
                 PersistRace race = new PersistRace();

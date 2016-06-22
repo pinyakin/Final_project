@@ -10,7 +10,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -50,7 +49,7 @@ public class MySqlHorseDao extends AbstractJDBCDao<Horse,Integer> {
 
     @Override
     protected List<Horse> parseResultSet(ResultSet rs) throws SQLException {
-        LinkedList<Horse> result = new LinkedList<>();
+        ArrayList<Horse> result = new ArrayList<>();
         try {
             while (rs.next()) {
                 PersistHorse horse = new PersistHorse();

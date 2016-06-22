@@ -15,8 +15,7 @@ import org.apache.log4j.Logger;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+
 
 /**
  * Created by ww on 30.05.2016.

@@ -6,7 +6,6 @@ import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -53,7 +52,7 @@ public class MySqlTicketDao extends AbstractJDBCDao<Ticket, Integer> {
     @Override
     protected List<Ticket> parseResultSet(ResultSet rs) throws SQLException {
 
-        LinkedList<Ticket> result = new LinkedList<>();
+        ArrayList<Ticket> result = new ArrayList<>();
         try {
             while (rs.next()) {
                 PersistTicket ticket = new PersistTicket();

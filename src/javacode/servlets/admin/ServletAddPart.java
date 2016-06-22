@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 /**
  * Created by ww on 03.06.2016.
@@ -62,13 +62,13 @@ public class ServletAddPart extends HttpServlet {
      * @throws IOException
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        LinkedList<Horse> list= new LinkedList<>();
+        ArrayList<Horse> list= new ArrayList<>();
         try {
            MySqlHorseDao mySqlHorseDao=new MySqlHorseDao(MySqlDaoFactory.getConnection());
            MySqlDaoParticipation mySqlDaoParticipation=new MySqlDaoParticipation(MySqlDaoFactory.getConnection());
-           list= (LinkedList<Horse>) mySqlHorseDao.getForPart(request.getParameter("id"));
+           list= (ArrayList<Horse>) mySqlHorseDao.getForPart(request.getParameter("id"));
            if(list.size()==0&&mySqlDaoParticipation.getByRaceId(request.getParameter("id"))==null) {
-               list = (LinkedList<Horse>) mySqlHorseDao.getAll();
+               list = (ArrayList<Horse>) mySqlHorseDao.getAll();
            }
            request.setAttribute("list",list);
            request.setAttribute("race",request.getParameter("id"));
