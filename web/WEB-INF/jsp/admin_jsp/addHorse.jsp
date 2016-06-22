@@ -5,8 +5,13 @@
   Time: 3:25
   To change this template use File | Settings | File Templates.
 --%>
+<jsp:useBean id="messageNewHorse" scope="request"
+             class="java.lang.String"/>
 <div class="mybody">
     <div class="myclass">
+        <c:if test="${!messageNewHorse.equals('')}">
+            <h1><fmt:message key="${messageNewHorse}"/></h1>
+        </c:if>
         <h2><fmt:message key="registration"/></h2>
         <form action="/addHorse" class="form-horizontal" method="post">
             <div class="form-group">

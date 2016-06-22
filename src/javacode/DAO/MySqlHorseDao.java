@@ -101,6 +101,17 @@ public class MySqlHorseDao extends AbstractJDBCDao<Horse,Integer> {
         }
         return list;
     }
+    public List<Horse> getByName(String name) {
+        List<Horse> list = new ArrayList<>();
+        String sql = "select * From races.horses where horsename='"+name+"';";
+        try (PreparedStatement statement = MySqlDaoFactory.getConnection().prepareStatement(sql)) {
+            ResultSet rs = statement.executeQuery();
+            list = parseResultSet(rs);
+        }  catch (SQLException e) {
+            logger.error("SQLException: ",e);
+        }
+        return list;
+    }
     public List<Horse> getPartByIdRace(int idRace) {
         List<Horse> list = new ArrayList<>();
         String sql = "select * From races.horses where id in(select idhorse from races.participants where idrace="+idRace+");";

@@ -34,6 +34,26 @@ public class ServletAddEvent extends HttpServlet {
      * @throws IOException
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if(request.getParameter("event")==null||request.getParameter("ippodrom")==null||request.getParameter("time")==null||
+                request.getParameter("date")==null){
+            logger.error("Troubles with parameters");
+            response.sendError(400);
+            return;
+        }
+        if(request.getParameter("event").trim().isEmpty()||request.getParameter("ippodrom").trim().isEmpty()||
+                request.getParameter("time").trim().isEmpty()|| request.getParameter("date").trim().isEmpty()){
+            logger.debug("Some empty fields");
+            request.setAttribute("messageNewEvent","empty");
+            doGet(request, response);
+            return;
+        }
+        if(request.getParameter("event").length()>100 || request.getParameter("ippodrom").length()>100) {
+            logger.debug("Too long value");
+            request.setAttribute("messageNewEvent","tooLong");
+            doGet(request, response);
+            return;
+        }
+
         Race race=new Race();
         race.setRacename(request.getParameter("event"));
         race.setIppodrom(request.getParameter("ippodrom"));

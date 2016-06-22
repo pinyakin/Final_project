@@ -31,11 +31,35 @@ public class ServletAddHorse extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String name=request.getParameter("name");
+        if(request.getParameter("name")==null){
+            logger.error("Troubles with parameters");
+            response.sendError(400);
+            return;
+        }
+        if(request.getParameter("name").trim().isEmpty()){
+            logger.debug("Some empty fields");
+            request.setAttribute("messageNewHorse","empty");
+            doGet(request, response);
+            return;
+        }
+        if(request.getParameter("name").length()>100) {
+            logger.debug("Too long value");
+            request.setAttribute("messageNewHorse","tooLong");
+            doGet(request, response);
+            return;
+        }
+
+        final String name=request.getParameter("name");
         Horse horse=new Horse();
         horse.setName(name);
         try {
             MySqlHorseDao mySqlHorseDao=new MySqlHorseDao(MySqlDaoFactory.getConnection());
+            if(mySqlHorseDao.getByName(name).size()!=0){
+                logger.debug("That name is already used");
+                request.setAttribute("messageNewHorse","nameUsed");
+                doGet(request, response);
+                return;
+            }
             mySqlHorseDao.persist(horse);
         } catch (SQLException e) {
             logger.error("SQLException:",e);
